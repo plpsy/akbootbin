@@ -16,5 +16,16 @@ dtb.bin  kernel.bin  param.bin  uboot.bin
 
 5 从原有系统copy /rtframe /bin/dsp-wrapper /bin/g*m /usr/bin/mpm* 至当前系统
 
+scp -r root@10.10.10.4:/lib/modules/ /lib
+scp -r root@10.10.10.4:/rtframe /
+修改start脚本
+
+scp -r root@10.10.10.4:/bin/dsp-wrapper /bin/
+scp -r root@10.10.10.4:/bin/g*m /bin
+scp -r root@10.10.10.4:/usr/bin/mpm* /usr/bin/
+scp root@10.10.10.4:/lib/dsp_executor.so /lib
+scp root@10.10.10.4:/lib/systemd/system/rtframe-daemon.service /lib/systemd/system/
+systemctl enable rtframe-daemon.service
+
 6 修改启动文件启动客户端
 
